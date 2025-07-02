@@ -1,0 +1,28 @@
+.register-card {
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    min-height: 450px; /* Tambahkan tinggi minimal */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Rapatkan antar form field */
+.row.mb-3 {
+    margin-bottom: 0.75rem !important;
+}
+
+/* Optional: biar form responsif */
+@media (max-width: 768px) {
+    .register-card {
+        padding: 1.5rem;
+        min-height: auto;
+    }
+}
+
+input.form-control:focus {
+    box-shadow: 0 0 0 0.15rem rgba(33, 150, 243, 0.25);
+    border-color: #2196f3;
+}

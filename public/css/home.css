@@ -1,0 +1,152 @@
+body {
+    background: linear-gradient(to right, #dff7ff, #bae3fa);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+.navbar-logo {
+    width: 35px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    background: linear-gradient(90deg, #36b2ff, #32b7ff);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 3 rem;
+    color: #ffffff !important;
+}
+
+.navbar-nav .nav-link {
+    color: #f0faff !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+    transform: scale(1.05);
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s;
+    margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 50%;
+}
+
+.landing-icon {
+    width: 175px; 
+    height: auto;
+    box-shadow: 0 0 20px #00bfff;
+    transition: transform 0.3s ease;
+    border-radius: 100px;
+    animation: fadeIn 1s ease-in-out;
+    
+}
+
+.landing-icon:hover {
+    transform: scale(1.05);
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    background-color: #00a6ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    background-color: #4db8fb;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    border-bottom: none;
+}
+
+.landing-title {
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: #007acc;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.landing-subtitle {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.description-box {
+    background-color: #ffffff;
+    border: 2px solid #cceeff;
+    border-radius: 15px;
+    padding: 25px 30px;
+    max-width: 750px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+    animation: fadeUp 1s ease-in-out;
+}
+
+.btn-primary {
+    background-color: #2575fc;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(67, 130, 238, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #1a5edb;
+     transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(26, 94, 219, 0.5);
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.description-box {
+    background-color: #f0f9ff;
+    border: 2px solid #bae6fd; 
+    border-radius: 15px;
+    padding: 20px 30px;
+    max-width: 700px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
