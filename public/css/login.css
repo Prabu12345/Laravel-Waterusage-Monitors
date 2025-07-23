@@ -1,5 +1,5 @@
 body {
-    background-color: #c0efff; 
+    background-color: #c0efff;
     font-family: 'Nunito', sans-serif;
 }
 
@@ -32,15 +32,6 @@ body {
     background-color: #ffffff;
 }
 
-.card-header {
-    background: linear-gradient(to right, #5dd4ff, #5dd4ff);
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
 .dropdown-menu {
     background-color: #ffffff;
     border-radius: 10px;
@@ -70,8 +61,15 @@ body {
 
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .mb-3 {

@@ -1,49 +1,38 @@
 <?php
 
+use App\Http\Controllers\UsageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\WaterUsageController;
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 
 Route::get('/', function () {
-    return view('home');
+    return view('homepage.home');
 });
 
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// homepage routes
+Route::get('/home', [App\Http\Controllers\HomepageController::class, 'home'])->name('homepage.home');
+Route::get('/about', [App\Http\Controllers\HomepageController::class, 'about'])->name('homepage.about');
+Route::get('/contact', [App\Http\Controllers\HomepageController::class, 'contact'])->name('homepage.contact');
+Route::post('/contact', [App\Http\Controllers\HomepageController::class, 'sendContact'])->name('homepage.sendContact');
+Route::get('/detail1', [App\Http\Controllers\HomepageController::class, 'detail1'])->name('homepage.detail1');
+Route::get('/detail2', [App\Http\Controllers\HomepageController::class, 'detail2'])->name('homepage.detail2');
+Route::get('/detail3', [App\Http\Controllers\HomepageController::class, 'detail3'])->name('homepage.detail3');
+Route::get('/detail4', [App\Http\Controllers\HomepageController::class, 'detail4'])->name('homepage.detail4');
 
+// Routing for authenticated users
 Route::middleware('auth')->group(function () {
-    Route::get('/data', [App\Http\Controllers\DataController::class, 'index'])->name('data');
-    Route::get('/data/create', [App\Http\Controllers\DataController::class, 'create'])->name('data.create');
-    Route::post('/data', [App\Http\Controllers\DataController::class, 'store'])->name('data.store');
+    // Dashboard and data routes
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/dashboard/tips', [App\Http\Controllers\DashboardController::class, 'tips'])->name('dashboard.tips');
+
+    Route::get('/waterusage', [App\Http\Controllers\WaterUsage\UsageController::class, 'index'])->name('waterusage.index');
+    Route::get('/waterusage/create', [App\Http\Controllers\WaterUsage\UsageController::class, 'create'])->name('waterusage.create');
+    Route::post('/waterusage', [App\Http\Controllers\WaterUsage\UsageController::class, 'store'])->name('waterusage.store');
+    Route::get('/waterusage/{id}/edit', [App\Http\Controllers\WaterUsage\UsageController::class, 'edit'])->name('waterusage.edit');
+    Route::put('/waterusage/{id}', [App\Http\Controllers\WaterUsage\UsageController::class, 'update'])->name('waterusage.update');
+    Route::delete('/waterusage/{id}', [App\Http\Controllers\WaterUsage\UsageController::class, 'destroy'])->name('waterusage.destroy');
 });
-
-// about rout
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-
-Route::get('/detail1', function () {
-    return view('detail1');
-})->name('detail1');
-
-Route::get('/detail2', function () {
-    return view('detail2');
-})->name('detail2');
-
-Route::get('/detai3', function () {
-    return view('detail3');
-})->name('detail3');
-
-Route::get('/detail4', function () {
-    return view('detail4');
-})->name('detail4');
-
-// contact rout
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
 
 // water usage API routes use apiResource
 Route::prefix('api')->middleware('api')->group(function () {
@@ -52,6 +41,6 @@ Route::prefix('api')->middleware('api')->group(function () {
 
 // Water usage export routes
 Route::prefix('water-usage')->group(function () {
-    Route::get('export/pdf/{id}', [App\Http\Controllers\WaterUsage\UsageExportPDF::class, 'generatePDF'])->name('water-usage.export.pdf');
-    Route::get('export/excel/{id}', [App\Http\Controllers\WaterUsage\UsageExportExcel::class, 'generateExcel'])->name('water-usage.export.excel');
+    Route::get('/export/pdf', [App\Http\Controllers\WaterUsage\ExportController::class, 'pdf'])->name('waterusage.export.pdf');
+    Route::get('/export/excel', [App\Http\Controllers\WaterUsage\ExportController::class, 'excel'])->name('waterusage.export.excel');
 });

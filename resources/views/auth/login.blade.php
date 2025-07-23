@@ -36,14 +36,9 @@
 
                         <div class="mb-3">
                             <label for="password" class="form-label">{{ __('Password') }}</label>
-                            <div class="input-group">
-                                <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password"
-                                    required autocomplete="current-password">
-                                <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
-                                    <i class="bi bi-eye-slash" id="eyeIcon"></i>
-                                </span>
-                            </div>
+                            <input id="password" type="password"
+                                class="form-control @error('password') is-invalid @enderror" name="password" required
+                                autocomplete="current-password">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -83,20 +78,6 @@
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const togglePassword = document.getElementById('togglePassword');
-            const password = document.getElementById('password');
-            const eyeIcon = document.getElementById('eyeIcon');
-
-            togglePassword.addEventListener('click', function () {
-                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-                password.setAttribute('type', type);
-                eyeIcon.classList.toggle('bi-eye');
-                eyeIcon.classList.toggle('bi-eye-slash');
-            });
-        });
-    </script>
 </body>
 
 </html>

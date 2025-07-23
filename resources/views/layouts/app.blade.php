@@ -24,9 +24,9 @@
     <link rel="stylesheet" href="{{ asset('css/about.css') }}">
     <link rel="stylesheet" href="{{ asset('css/biodata.css') }}">
 
-     <!-- Page-specific CSS -->
+    <!-- Page-specific CSS -->
     @yield('css')
-    
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
@@ -41,8 +41,16 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    <img src="{{ asset('image/logo.png') }}" alt="Logo" class="navbar-logo me-3">
-                    <span>{{ config('app.name', 'MyWaterTrack') }}</span>
+                    <div
+                        style="background: #f8f9fa; border-radius: 12px; padding: 4px 10px; display: flex; align-items: center; margin-right: 12px;">
+                        <img src="{{ asset('image/logo.png') }}" alt="Logo" class="navbar-logo" style="height:32px;">
+                    </div>
+                    <span style="font-family: 'Orbitron', 'Nunito', sans-serif; font-weight: 700; letter-spacing: 2px;">
+                        {{ config('app.name', 'MyWaterTrack') }}
+                    </span>
+                    <!-- Orbitron font for cooler look -->
+                    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
+                        rel="stylesheet">
                 </a>
 
 
@@ -55,24 +63,27 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                       @guest
-                        <li class="nav-item">
-                            <a class="nav-link me-2" href="{{ route('home') }}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-2" href="{{ route('about') }}">Tentang Kami</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-2" href="{{ route('contact') }}">Kontak</a>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <a class="nav-link me-2" href="{{ route('dashboard') }}">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link me-2" href="{{ route('data') }}">Kelola Data</a>
-                        </li>
-                    @endguest
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link me-2" href="{{ route('homepage.home') }}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-2" href="{{ route('homepage.about') }}">Tentang Kami</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-2" href="{{ route('homepage.contact') }}">Kontak</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link me-2" href="{{ route('dashboard.index') }}">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-2" href="{{ route('waterusage.index') }}">Kelola Data</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link me-2" href="{{ route('dashboard.tips') }}">Tips Penggunaan Air</a>
+                            </li>
+                        @endguest
 
                     </ul>
 
@@ -101,7 +112,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                    document.getElementById('logout-form').submit();">
+                                                                            document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -122,7 +133,7 @@
             </div>
         </main>
         @yield('scripts')
-        
+
     </div>
 </body>
 

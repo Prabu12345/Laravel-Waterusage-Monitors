@@ -18,6 +18,12 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('dashboard');
+        $items = \App\Models\WaterUsage::where('user_id', auth()->id())->latest()->take(10)->get();
+        return view('dashboard.index', compact('items'));
+    }
+
+    public function tips()
+    {
+        return view('dashboard.tips');
     }
 }
